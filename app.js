@@ -76,12 +76,13 @@ function btnPress(){
 }
 
 document.addEventListener("keypress",function(){
-    myPlay2();
+    
     // if(started == false){
     //     started = true;
     // }
     // levelUp();
     if (started == false) {
+        myPlay2();
         console.log("Game Started");
         started = true;       
         levelUp(); 
