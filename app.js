@@ -4,6 +4,7 @@ let started = false;
 let level = 0;
 let h2 = document.querySelector("h2");
 let buttons = ["c1","c2","c3","c4"];
+let flag = 0;
 
 function gameFlash(btn){
     btn.classList.add("gameflash");
@@ -31,21 +32,20 @@ function myPlay1() {
 } ;
 
 function levelUp(){
-    setTimeout(() => {
-        userSeq = [];
-        level++;
-        h2.innerText = `Level ${level}`;44
-        let randIndex = Math.floor(Math.random()*3);
-        let randColor = buttons[randIndex];
-        let randBtn = document.querySelector(`.${randColor}`);
-        // console.log(randIndex);
-        // console.log(randColor);
-        // console.log(randBtn);
-        gameSeq.push(randColor);
-        console.log(gameSeq);
-        myPlay();
-        gameFlash(randBtn);
-    }, 2000);
+
+    userSeq = [];
+    level++;
+    h2.innerText = `Level ${level}`;44
+    let randIndex = Math.floor(Math.random()*3);
+    let randColor = buttons[randIndex];
+    let randBtn = document.querySelector(`.${randColor}`);
+    // console.log(randIndex);
+    // console.log(randColor);
+    // console.log(randBtn);
+   gameSeq.push(randColor);
+    console.log(gameSeq);
+    myPlay();
+    gameFlash(randBtn);
     
 }
 
@@ -88,7 +88,28 @@ document.addEventListener("keypress",function(){
         myPlay2();
         console.log("Game Started");
         started = true;
-        levelUp();      
+        if (flag == 0){
+            setTimeout(() => {
+                userSeq = [];
+                level++;
+                h2.innerText = `Level ${level}`;44
+                let randIndex = Math.floor(Math.random()*3);
+                let randColor = buttons[randIndex];
+                let randBtn = document.querySelector(`.${randColor}`);
+                // console.log(randIndex);
+                // console.log(randColor);
+                // console.log(randBtn);
+                gameSeq.push(randColor);
+                console.log(gameSeq);
+                myPlay();
+                gameFlash(randBtn);
+            }, 2000);
+            flag++;
+        }
+        else{
+            levelUp(); 
+        }
+        // levelUp();      
         
     }
 });
