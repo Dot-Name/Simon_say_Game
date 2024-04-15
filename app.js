@@ -31,19 +31,22 @@ function myPlay1() {
 } ;
 
 function levelUp(){
-    userSeq = [];
-    level++;
-    h2.innerText = `Level ${level}`;44
-    let randIndex = Math.floor(Math.random()*3);
-    let randColor = buttons[randIndex];
-    let randBtn = document.querySelector(`.${randColor}`);
-    // console.log(randIndex);
-    // console.log(randColor);
-    // console.log(randBtn);
-    gameSeq.push(randColor);
-    console.log(gameSeq);
-    myPlay();
-    gameFlash(randBtn);
+    setTimeout(() => {
+        userSeq = [];
+        level++;
+        h2.innerText = `Level ${level}`;44
+        let randIndex = Math.floor(Math.random()*3);
+        let randColor = buttons[randIndex];
+        let randBtn = document.querySelector(`.${randColor}`);
+        // console.log(randIndex);
+        // console.log(randColor);
+        // console.log(randBtn);
+        gameSeq.push(randColor);
+        console.log(gameSeq);
+        myPlay();
+        gameFlash(randBtn);
+    }, 2000);
+    
 }
 
 function checkAns(idx){
@@ -84,8 +87,9 @@ document.addEventListener("keypress",function(){
     if (started == false) {
         myPlay2();
         console.log("Game Started");
-        started = true;       
-        levelUp(); 
+        started = true;
+        levelUp();      
+        
     }
 });
 
