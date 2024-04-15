@@ -6,6 +6,54 @@ let h2 = document.querySelector("h2");
 let buttons = ["c1","c2","c3","c4"];
 let flag = 0;
 
+
+function GoOutFullscreen() {
+	if(document.exitFullscreen)
+		document.exitFullscreen();
+	else if(document.mozCancelFullScreen)
+		document.mozCancelFullScreen();
+	else if(document.webkitExitFullscreen)
+		document.webkitExitFullscreen();
+	else if(document.msExitFullscreen)
+		document.msExitFullscreen();
+}
+function GoInFullscreen(element) {
+	if(element.requestFullscreen)
+		element.requestFullscreen();
+	else if(element.mozRequestFullScreen)
+		element.mozRequestFullScreen();
+	else if(element.webkitRequestFullscreen)
+		element.webkitRequestFullscreen();
+	else if(element.msRequestFullscreen)
+		element.msRequestFullscreen();
+}
+function IsFullScreenCurrently() {
+	var full_screen_element = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
+	
+	// If no element is in full-screen
+	if(full_screen_element === null)
+		return false;
+	else
+		return true;
+}
+$("#go-button").on('click', function() {
+	if(IsFullScreenCurrently())
+		GoOutFullscreen();
+	else
+		GoInFullscreen($("#element").get(0));
+});
+$(document).on('fullscreenchange webkitfullscreenchange mozfullscreenchange MSFullscreenChange', function() {
+	if(IsFullScreenCurrently()) {
+		$("#element span").text('Full Screen Mode Enabled');
+		$("#go-button").text('Disable Full Screen');
+	}
+	else {
+		$("#element span").text('Full Screen Mode Disabled');
+		$("#go-button").text('Enable Full Screen');
+	}
+});
+
+
 function gameFlash(btn){
     btn.classList.add("gameflash");
     setTimeout(function(){

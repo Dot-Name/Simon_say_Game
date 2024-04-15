@@ -5,27 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Says Game</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Simon Game</h1>
-    <h2>Press any key to start the game</h2>
-    <div class="btnContainer">
-        <div class="lineOne">
-            <div class="btn c1" type="button" id="c1">1</div>
-            <div class="btn c2" type="button" id="c2">2</div>
+    <div id="element">
+        <h1>Simon Game</h1>
+        <h2>Press any key to start the game</h2>
+        <div class="btnContainer">
+            <div class="lineOne">
+                <div class="btn c1" type="button" id="c1">1</div>
+                <div class="btn c2" type="button" id="c2">2</div>
+            </div>
+            <div class="lineTwo">
+                <div class="btn c3" type="button" id="c3">3</div>
+                <div class="btn c4" type="button" id="c4">4</div>
+            </div>
         </div>
-        <div class="lineTwo">
-            <div class="btn c3" type="button" id="c3">3</div>
-            <div class="btn c4" type="button" id="c4">4</div>
-        </div>
+        <button id="go-button" class="glow-on-hover">Enable Full Screen</button>
+    
+    
+        <audio src="./1.wav" id="C"></audio>
+        <audio src="./2.wav" id="E"></audio>
+        <audio src="./3.wav" id="S"></audio>
+
     </div>
-
-
-
-    <audio src="./1.wav" id="C"></audio>
-    <audio src="./2.wav" id="E"></audio>
-    <audio src="./3.wav" id="S"></audio>
-
+     
     <script src="./app.js"></script>
 </body>
 </html>
