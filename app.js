@@ -81,14 +81,13 @@ document.addEventListener("keypress",function(){
     //     started = true;
     // }
     // levelUp();
-    document.addEventListener("keypress", function(){
-        if (started == false) {
-            console.log("Game Started");
-            started = true;       
-            levelUp(); 
-        }
-    });
+    if (started == false) {
+        console.log("Game Started");
+        started = true;       
+        levelUp(); 
+    }
 });
+
 
 let allBtns = document.querySelectorAll(".btn");
 for (btn of allBtns){
