@@ -80,10 +80,10 @@ function myPlay1() {
 } ;
 
 function levelUp(){
-
+    
     userSeq = [];
     level++;
-    h2.innerText = `Level ${level}`;44
+    h2.innerText = `Level ${level}`;
     let randIndex = Math.floor(Math.random()*3);
     let randColor = buttons[randIndex];
     let randBtn = document.querySelector(`.${randColor}`);
